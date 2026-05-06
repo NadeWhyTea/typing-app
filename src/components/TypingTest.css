@@ -989,9 +989,8 @@
 .word-active {
   color: var(--tt-active);
   background: var(--tt-surface-2);
-  box-shadow: 0 0 30px var(--tt-border-glow);
+  box-shadow: 0 0 12px var(--tt-border-glow);
   font-weight: 500;
-  transform: scale(1.02);
 }
 
 .word-done {

@@ -329,9 +329,6 @@ export function TypingTest({ onComplete }) {
           <button className="tt-reset-btn" onClick={restartSameMode}>
             try again ↺
           </button>
-          <button className="tt-diff-btn-outline" onClick={() => { setMode('words'); setUseSentences(false); reset({ difficulty, mode: 'words', wordCount: 30, useSentences: false }); setTimeout(focusInput, 50); }}>
-            new test +
-          </button>
         </div>
       </div>
     )

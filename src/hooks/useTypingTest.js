@@ -95,15 +95,6 @@ export function useTypingTest(params = {}) {
       }
     }
 
-    // Handle backspace to previous word when input is empty and we're not on first word
-    if (value === '' && currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1)
-      // Restore the previous word's input from charData if available
-      const prevWordCharData = charData[currentIndex - 1] || []
-      const prevInput = prevWordCharData.map(c => c.char).join('')
-      setInput(prevInput)
-      return
-    }
 
     // Track character-level data for the current word
     if (currentWord && value.length > 0) {
