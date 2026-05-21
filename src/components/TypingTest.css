@@ -968,7 +968,7 @@
 
 /* ── Words Container ── */
 .tt-words-container {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 1);
   border: 1px solid var(--tt-border);
   border-radius: var(--tt-radius);
   padding: 32px;
