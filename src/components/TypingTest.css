@@ -190,7 +190,7 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
-  background: var(--tt-surface);
+  background: rgba(255, 255, 255, 0.85);
   border: 1px solid var(--tt-border);
   border-radius: var(--tt-radius);
   padding: 64px 72px 72px;
