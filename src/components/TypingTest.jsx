@@ -32,6 +32,7 @@ export function TypingTest({ onComplete }) {
   const [isFocused, setIsFocused] = useState(true)
   const [idleExpired, setIdleExpired] = useState(false)
   const [showHint, setShowHint] = useState(false) // Controls overlay visibility
+  const [isTyping, setIsTyping] = useState(false) // Track if user is actively typing
   const hasBeenFocusedRef = useRef(false) // Track if user ever focused
   const inputRef  = useRef(null)
   const wordsRef  = useRef(null)
@@ -48,6 +49,20 @@ export function TypingTest({ onComplete }) {
   } = useTypingTest(testParams)
 
   const displayTime = mode === 'time' ? timeRemaining : timeElapsed
+
+  // Calculate progress for the progress bar
+  const progress = mode === 'time'
+    ? ((timeLimit - timeRemaining) / timeLimit) * 100
+    : (currentIndex / words.length) * 100
+
+  // Track typing state - fade elements when user starts typing
+  useEffect(() => {
+    if (status === 'idle') {
+      setIsTyping(false)
+    } else if (status === 'typing' || status === 'finished') {
+      setIsTyping(true)
+    }
+  }, [status])
 
   const focusInput = useCallback(() => inputRef.current?.focus(), [])
 
@@ -336,7 +351,11 @@ export function TypingTest({ onComplete }) {
 
   // ── Typing test ──────────────────────────────────────────────────────────────
   return (
-    <div className="tt-root" onClick={focusInput}>
+    <div className={`tt-root ${isTyping ? 'tt-root--typing' : ''}`} onClick={focusInput}>
+      {/* Progress Bar */}
+      <div className="tt-progress-bar">
+        <div className="tt-progress-fill" style={{ width: `${Math.min(progress, 100)}%` }} />
+      </div>
       <div className="tt-stats">
         <div className="tt-stat">
           <span className="tt-stat-label">time</span>

@@ -31,22 +31,13 @@
   --tt-stat:      #b0b0d0;
   
   --tt-font:   'Space Grotesk', system-ui, sans-serif;
-  --tt-word-size: 26px;
+  --tt-word-size: 36px;
   --tt-line-height: 1.8;
   --tt-radius: 20px;
   --tt-glow:   0 0 40px rgba(139, 92, 246, 0.2);
   --tt-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
   --tt-blur:   blur(0px);
   --tt-backdrop: blur(20px);
-  
-  /* Space gradient background */
-  background: 
-    radial-gradient(ellipse at 20% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 80%, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 70%),
-    linear-gradient(180deg, #0d0d1a 0%, #1a1a2e 50%, #0f0f23 100%);
-  background-attachment: fixed;
-  background-size: cover;
 }
 
 /* Theme: FLOWER - Soft watercolor botanical */
@@ -76,21 +67,13 @@
   --tt-stat:      #6b5b4f;
   
   --tt-font:   'Crimson Pro', Georgia, serif;
-  --tt-word-size: 28px;
+  --tt-word-size: 40px;
   --tt-line-height: 2;
   --tt-radius: 24px;
   --tt-glow:   0 8px 32px rgba(219, 39, 119, 0.1);
   --tt-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
   --tt-blur:   blur(0.3px);
   --tt-backdrop: blur(12px);
-  
-  /* Soft watercolor gradient */
-  background: 
-    radial-gradient(ellipse at 10% 20%, rgba(244, 114, 182, 0.08) 0%, transparent 40%),
-    radial-gradient(ellipse at 90% 80%, rgba(167, 139, 250, 0.06) 0%, transparent 40%),
-    radial-gradient(ellipse at 50% 50%, rgba(251, 191, 36, 0.04) 0%, transparent 60%),
-    linear-gradient(135deg, #faf8f5 0%, #fff5f0 25%, #f8f4f0 50%, #fff8f5 75%, #faf8f5 100%);
-  background-attachment: fixed;
 }
 
 /* Theme: OCEAN - Deep sea blues with organic flow */
@@ -120,21 +103,13 @@
   --tt-stat:      #94c5e8;
   
   --tt-font:   'DM Mono', 'Courier New', monospace;
-  --tt-word-size: 22px;
+  --tt-word-size: 32px;
   --tt-line-height: 1.9;
   --tt-radius: 8px;
   --tt-glow:   0 0 35px rgba(14, 165, 233, 0.2);
   --tt-shadow: 0 12px 40px rgba(0, 15, 30, 0.6);
   --tt-blur:   blur(0.2px);
   --tt-backdrop: blur(16px);
-  
-  /* Ocean depth gradient */
-  background: 
-    radial-gradient(ellipse at 30% 70%, rgba(14, 165, 233, 0.12) 0%, transparent 50%),
-    radial-gradient(ellipse at 70% 30%, rgba(56, 189, 248, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 100%, rgba(6, 182, 212, 0.1) 0%, transparent 60%),
-    linear-gradient(180deg, #0a1628 0%, #0c2137 30%, #0a2540 60%, #071a2e 100%);
-  background-attachment: fixed;
 }
 
 /* Theme: AUTUMN - Warm falling leaves palette */
@@ -164,21 +139,13 @@
   --tt-stat:      #d4a574;
   
   --tt-font:   'Playfair Display', Georgia, serif;
-  --tt-word-size: 30px;
+  --tt-word-size: 42px;
   --tt-line-height: 1.8;
   --tt-radius: 12px;
   --tt-glow:   0 0 30px rgba(234, 88, 12, 0.15);
   --tt-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
   --tt-blur:   blur(0.2px);
   --tt-backdrop: blur(14px);
-  
-  /* Autumn warmth gradient */
-  background: 
-    radial-gradient(ellipse at 20% 80%, rgba(234, 88, 12, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(251, 191, 36, 0.06) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(180, 83, 9, 0.05) 0%, transparent 60%),
-    linear-gradient(135deg, #2d1f16 0%, #3d2820 50%, #2a1d15 100%);
-  background-attachment: fixed;
 }
 
 /* Theme: HANDWRITTEN - Personal journal style */
@@ -208,26 +175,13 @@
   --tt-stat:      #5a5045;
   
   --tt-font:   'Caveat', 'Bradley Hand', cursive;
-  --tt-word-size: 36px;
+  --tt-word-size: 48px;
   --tt-line-height: 1.6;
   --tt-radius: 6px;
   --tt-glow:   none;
   --tt-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
   --tt-blur:   blur(0.1px);
   --tt-backdrop: blur(8px);
-  
-  /* Paper texture with subtle lines */
-  background: 
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 31px,
-      rgba(200, 190, 180, 0.15) 31px,
-      rgba(200, 190, 180, 0.15) 32px
-    ),
-    linear-gradient(180deg, #f7f5f0 0%, #faf8f3 100%);
-  background-attachment: fixed;
-  background-size: 100% 32px;
 }
 
 /* ── Root ── */
@@ -235,12 +189,12 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 28px;
-  background: var(--tt-surface);
+  gap: 40px;
+  background: rgba(255, 255, 255, 0.85);
   border: 1px solid var(--tt-border);
   border-radius: var(--tt-radius);
-  padding: 48px 56px 56px;
-  max-width: 1000px;
+  padding: 64px 72px 72px;
+  max-width: 1600px;
   margin: 24px auto;
   font-family: var(--tt-font);
   cursor: text;
@@ -248,7 +202,7 @@
   box-shadow: var(--tt-shadow), var(--tt-glow);
   backdrop-filter: var(--tt-backdrop);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  min-height: 500px;
+  min-height: 80vh;
 }
 
 /* ── Header & Stats ── */
@@ -274,12 +228,12 @@
 .tt-stats {
   display: flex;
   align-items: center;
-  gap: 32px;
-  padding: 16px 20px;
+  gap: 48px;
+  padding: 24px 32px;
   background: var(--tt-surface);
   border: 1px solid var(--tt-border);
   border-radius: var(--tt-radius);
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .tt-stat {
@@ -290,7 +244,7 @@
 }
 
 .tt-stat-label {
-  font-size: 11px;
+  font-size: 14px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--tt-label);
@@ -298,7 +252,7 @@
 }
 
 .tt-stat-value {
-  font-size: 28px;
+  font-size: 36px;
   font-weight: 700;
   color: var(--tt-active);
   line-height: 1;
@@ -321,13 +275,13 @@
 .tt-settings-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 16px;
   align-items: center;
-  padding: 16px 20px;
+  padding: 24px 32px;
   background: var(--tt-surface);
   border: 1px solid var(--tt-border);
   border-radius: var(--tt-radius);
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 
 .tt-diff-selector {
@@ -343,9 +297,9 @@
 /* ── Option Buttons ── */
 .tt-option-btn {
   font-family: var(--tt-font);
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 600;
-  padding: 8px 16px;
+  padding: 12px 24px;
   border-radius: var(--tt-radius);
   border: 2px solid var(--tt-border);
   background: var(--tt-surface-2);
@@ -373,11 +327,11 @@
 /* ── Mode Buttons Enhancement ── */
 .tt-mode-btn {
   font-family: var(--tt-font);
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  padding: 10px 22px;
+  padding: 14px 28px;
   border-radius: var(--tt-radius);
   border: 2px solid var(--tt-border);
   background: var(--tt-surface-2);
@@ -404,11 +358,11 @@
 /* ── Difficulty Buttons Enhancement ── */
 .tt-diff-btn {
   font-family: var(--tt-font);
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  padding: 10px 18px;
+  padding: 14px 24px;
   border-radius: var(--tt-radius);
   border: 2px solid var(--tt-border);
   background: var(--tt-surface-2);
@@ -946,14 +900,14 @@
 /* ── Words Display ── */
 .tt-words-wrap {
   position: relative;
-  max-height: 280px;
+  max-height: 400px;
   overflow: hidden;
 }
 
 .tt-words {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px 16px;
+  gap: 16px 20px;
   line-height: var(--tt-line-height);
 }
 
@@ -977,7 +931,7 @@
   letter-spacing: 0.02em;
   line-height: var(--tt-line-height, 1.7);
   transition: all 0.3s ease;
-  padding: 4px 8px;
+  padding: 6px 12px;
   border-radius: var(--tt-radius);
 }
 
@@ -988,8 +942,6 @@
 
 .word-active {
   color: var(--tt-active);
-  background: var(--tt-surface-2);
-  box-shadow: 0 0 12px var(--tt-border-glow);
   font-weight: 500;
 }
 
@@ -1042,6 +994,26 @@
   color: var(--tt-error);
 }
 
+.char-cursor {
+  position: relative;
+}
+
+.char-cursor::after {
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--tt-cursor);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 /* ── Blur Effect for Hint Overlay ── */
 .tt-words-wrap--blurred .tt-words {
   filter: blur(4px);
@@ -1062,4 +1034,42 @@
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+/* ── Typing Mode Fade ── */
+.tt-root--typing .tt-stats,
+.tt-root--typing .tt-settings-row {
+  opacity: 0.15;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.tt-root--typing .tt-stats:hover,
+.tt-root--typing .tt-settings-row:hover {
+  opacity: 0.4;
+}
+
+/* ── Progress Bar ── */
+.tt-progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(128, 128, 128, 0.1);
+  overflow: hidden;
+}
+
+.tt-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--tt-accent), var(--tt-accent-2));
+  transition: width 0.3s ease;
+}
+
+.tt-root--typing .tt-progress-bar {
+  opacity: 1;
+}
+
+.tt-root:not(.tt-root--typing) .tt-progress-bar {
+  opacity: 0.3;
 }
