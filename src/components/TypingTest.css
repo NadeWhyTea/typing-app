@@ -190,7 +190,7 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
-  background: rgba(255, 255, 255, 0.85);
+  background: var(--tt-surface);
   border: 1px solid var(--tt-border);
   border-radius: var(--tt-radius);
   padding: 64px 72px 72px;
@@ -201,8 +201,14 @@
   user-select: none;
   box-shadow: var(--tt-shadow), var(--tt-glow);
   backdrop-filter: var(--tt-backdrop);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   min-height: 80vh;
+}
+
+.tt-root--typing {
+  padding-bottom: 32px;
+  max-width: 1000px;
+  min-height: 60vh;
 }
 
 /* ── Header & Stats ── */
@@ -419,12 +425,12 @@
 
 /* ── Results Screen ── */
 .tt-results-title {
-  font-size: 42px;
+  font-size: 36px;
   font-weight: 300;
   letter-spacing: 0.1em;
   text-transform: lowercase;
   text-align: center;
-  margin: 0 0 32px;
+  margin: 0 0 24px;
   background: linear-gradient(135deg, var(--tt-accent), var(--tt-accent-2));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -436,19 +442,19 @@
 .tt-stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-bottom: 32px;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
 .tt-stat-card {
   background: var(--tt-surface);
   border: 1px solid var(--tt-border);
   border-radius: var(--tt-radius);
-  padding: 20px 16px;
+  padding: 16px 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   transition: all 0.2s ease;
 }
 
@@ -464,7 +470,7 @@
 }
 
 .tt-stat-card-num {
-  font-size: 36px;
+  font-size: 28px;
   font-weight: 700;
   color: var(--tt-active);
   letter-spacing: -0.02em;
@@ -520,17 +526,97 @@
   background: var(--tt-surface);
   border: 1px solid var(--tt-border);
   border-radius: var(--tt-radius);
-  padding: 24px;
+  padding: 32px;
   margin-bottom: 24px;
 }
 
 .tt-section-label {
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--tt-label);
-  margin: 0 0 20px;
+  margin: 0 0 24px;
   text-align: center;
+  font-weight: 600;
+}
+
+.tt-chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  height: 180px;
+  padding: 0 16px;
+  position: relative;
+}
+
+.tt-chart::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 25%;
+  height: 1px;
+  background: var(--tt-border);
+  opacity: 0.3;
+}
+
+.tt-chart::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: var(--tt-border);
+  opacity: 0.3;
+}
+
+.tt-chart-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 40px;
+}
+
+.tt-chart-val {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--tt-accent);
+  opacity: 0.9;
+}
+
+.tt-chart-bar-wrap {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  min-height: 80px;
+}
+
+.tt-chart-bar {
+  width: 100%;
+  max-width: 24px;
+  background: linear-gradient(180deg, var(--tt-accent), var(--tt-accent-2));
+  border-radius: 4px 4px 0 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px var(--tt-border-glow);
+}
+
+.tt-chart-bar:hover {
+  filter: brightness(1.1);
+  transform: scaleY(1.02);
+}
+
+.tt-chart-label {
+  font-size: 11px;
+  color: var(--tt-label);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
 }
 
 /* ── Dual Axis Chart ── */
@@ -838,17 +924,22 @@
   justify-content: center;
   z-index: 10;
   cursor: pointer;
-  background: rgba(10, 10, 15, 0.7);
-  backdrop-filter: blur(4px);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
+  backdrop-filter: blur(8px);
   border-radius: var(--tt-radius);
+  border: 1px solid rgba(139, 92, 246, 0.2);
 }
 
 .tt-hint {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
   color: var(--tt-active);
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  background: linear-gradient(135deg, var(--tt-accent), var(--tt-accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   pointer-events: none;
   animation: fadeIn 0.5s ease;
   text-shadow: 0 0 20px var(--tt-accent);
@@ -900,15 +991,28 @@
 /* ── Words Display ── */
 .tt-words-wrap {
   position: relative;
-  max-height: 400px;
-  overflow: hidden;
+  max-height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.tt-words-wrap::-webkit-scrollbar {
+  display: none;
 }
 
 .tt-words {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px 20px;
+  gap: 1px 2px;
   line-height: var(--tt-line-height);
+  text-align: center;
+  justify-content: center;
 }
 
 /* ── Sentence Lines ── */
@@ -937,7 +1041,7 @@
 
 .word-dim {
   color: var(--tt-dim);
-  opacity: 0.85;
+  opacity: 0.6;
 }
 
 .word-active {
@@ -967,6 +1071,7 @@
 
 .char-pending {
   color: var(--tt-pending);
+  opacity: 0.8;
 }
 
 .char-hit {
@@ -996,6 +1101,7 @@
 
 .char-cursor {
   position: relative;
+  color: var(--tt-accent);
 }
 
 .char-cursor::after {
@@ -1039,14 +1145,22 @@
 /* ── Typing Mode Fade ── */
 .tt-root--typing .tt-stats,
 .tt-root--typing .tt-settings-row {
-  opacity: 0.15;
-  transition: opacity 0.4s ease;
+  opacity: 0;
+  max-height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  transition: 
+    opacity 0.4s ease 0.1s,
+    max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.3s,
+    margin 0.5s ease 0.2s,
+    padding 0.5s ease 0.2s;
   pointer-events: none;
 }
 
-.tt-root--typing .tt-stats:hover,
-.tt-root--typing .tt-settings-row:hover {
-  opacity: 0.4;
+.tt-root--typing .tt-progress-bar {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* ── Progress Bar ── */
@@ -1055,19 +1169,38 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 3px;
-  background: rgba(128, 128, 128, 0.1);
+  height: 80px;
+  background: transparent;
   overflow: hidden;
+  border-radius: 0 0 var(--tt-radius) var(--tt-radius);
+  z-index: 5;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
 }
 
 .tt-progress-fill {
-  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
   background: linear-gradient(90deg, var(--tt-accent), var(--tt-accent-2));
   transition: width 0.3s ease;
+  opacity: 0.3;
 }
 
-.tt-root--typing .tt-progress-bar {
-  opacity: 1;
+.tt-progress-label {
+  position: relative;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--tt-accent);
+  z-index: 2;
+  margin-left: auto;
+  text-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 .tt-root:not(.tt-root--typing) .tt-progress-bar {

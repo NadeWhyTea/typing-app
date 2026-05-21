@@ -53,13 +53,13 @@ export function TypingTest({ onComplete }) {
   // Calculate progress for the progress bar
   const progress = mode === 'time'
     ? ((timeLimit - timeRemaining) / timeLimit) * 100
-    : (currentIndex / words.length) * 100
+    : ((currentIndex + (input.length / Math.max(words[currentIndex]?.length || 1))) / words.length) * 100
 
   // Track typing state - fade elements when user starts typing
   useEffect(() => {
     if (status === 'idle') {
       setIsTyping(false)
-    } else if (status === 'typing' || status === 'finished') {
+    } else if (status === 'running' || status === 'finished') {
       setIsTyping(true)
     }
   }, [status])
@@ -355,6 +355,11 @@ export function TypingTest({ onComplete }) {
       {/* Progress Bar */}
       <div className="tt-progress-bar">
         <div className="tt-progress-fill" style={{ width: `${Math.min(progress, 100)}%` }} />
+        {isTyping && (
+          <div className="tt-progress-label">
+            {mode === 'time' ? formatTime(displayTime) : `${currentIndex}/${words.length}`}
+          </div>
+        )}
       </div>
       <div className="tt-stats">
         <div className="tt-stat">

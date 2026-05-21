@@ -95,6 +95,23 @@ export function useTypingTest(params = {}) {
       }
     }
 
+    // Handle backspace: require backspacing over a space before returning to previous word
+    if (value === '' && input !== '' && currentIndex > 0) {
+      // If user backspaced the last character of a word, insert a virtual space
+      // They must backspace again to remove this space before going back
+      setInput(' ')
+      return
+    }
+    
+    // Handle backspace from virtual space state - go to previous word
+    if (value === '' && input === ' ' && currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1)
+      // Restore the previous word's input from charData if available
+      const prevWordCharData = charData[currentIndex - 1] || []
+      const prevInput = prevWordCharData.map(c => c.char).join('')
+      setInput(prevInput)
+      return
+    }
 
     // Track character-level data for the current word
     if (currentWord && value.length > 0) {
@@ -148,7 +165,11 @@ export function useTypingTest(params = {}) {
       const newResults = [...wordResults, isCorrect ? 'correct' : 'incorrect']
 
       if (!isCorrect) {
-        setWrongWords(prev => [...prev, { expected, typed }])
+        // Only add to wrongWords if this exact word isn't already recorded
+        setWrongWords(prev => {
+          const alreadyRecorded = prev.some(w => w.expected === expected && w.typed === typed)
+          return alreadyRecorded ? prev : [...prev, { expected, typed }]
+        })
       } else {
         setTotalChars(prev => prev + expected.length)
       }
