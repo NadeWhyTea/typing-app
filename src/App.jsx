@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react'
 import { TypingTest } from './components/TypingTest'
 
 const BACKGROUNDS = {
-  space: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1920&q=80',
-  flower: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=1920&q=80',
-  ocean: 'https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=1920&q=80',
-  autumn: 'https://images.unsplash.com/photo-1507371341162-763b5e419408?w=1920&q=80',
-  handwritten: 'https://images.unsplash.com/photo-1517842645767-c639042777db?w=1920&q=80',
+  space:       '/space-bg.jpg',
+  flower:      '/flower-bg.jpg',
+  ocean:       '/ocean-bg.jpg',
+  autumn:      '/autumn-bg.jpg',
+  handwritten: '/handwritten-bg.jpg',
 }
 
 function App() {
