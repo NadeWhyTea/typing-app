@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { TypingTest } from './components/TypingTest'
+import { Analytics } from '@vercel/analytics/react'
 
 const BACKGROUNDS = {
   space:       '/space-bg.jpg',
@@ -43,6 +44,7 @@ function App() {
       }}
     >
       <TypingTest onComplete={(result) => console.log(result)} />
+      <Analytics />
     </main>
   )
 }
