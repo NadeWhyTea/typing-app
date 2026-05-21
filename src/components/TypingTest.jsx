@@ -13,7 +13,12 @@ const STORAGE_KEY = 'typing-test-prefs'
 
 function loadPrefs() {
   try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}
+    const prefs = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}
+    // Force space theme as default
+    if (!prefs.theme || prefs.theme === 'cyber') {
+      prefs.theme = 'space'
+    }
+    return prefs
   } catch { return {} }
 }
 
@@ -28,7 +33,7 @@ export function TypingTest({ onComplete }) {
   const [timeLimit, setTimeLimit] = useState(saved.timeLimit || 30)
   const [wordCount, setWordCount] = useState(saved.wordCount || 30)
   const [useSentences, setUseSentences] = useState(saved.useSentences || false)
-  const [theme, setTheme] = useState(saved.theme || 'cyber')
+  const [theme, setTheme] = useState(saved.theme || 'space')
   const [isFocused, setIsFocused] = useState(true)
   const [idleExpired, setIdleExpired] = useState(false)
   const [showHint, setShowHint] = useState(false) // Controls overlay visibility
