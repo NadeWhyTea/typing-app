@@ -1013,6 +1013,9 @@
   line-height: var(--tt-line-height);
   text-align: center;
   justify-content: center;
+  background: rgba(255, 255, 255, 0.98);
+  padding: 24px;
+  border-radius: var(--tt-radius);
 }
 
 /* ── Sentence Lines ── */
