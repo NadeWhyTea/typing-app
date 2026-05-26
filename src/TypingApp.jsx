@@ -406,10 +406,10 @@ body{
   text-align:center;margin-bottom:clamp(20px,3vw,40px);
   letter-spacing:-0.02em;font-weight:600;
   font-size:clamp(40px,5vw,72px);color:var(--act);opacity:0.95;
-  text-shadow:0 0 40px var(--glow);
+  text-shadow:0 0 40px var(--glow), 0 2px 8px rgba(0,0,0,0.4);
   animation:logoGlow 4s ease-in-out infinite alternate;
 }
-@keyframes logoGlow{from{text-shadow:0 0 20px var(--glow)}to{text-shadow:0 0 60px var(--glow),0 0 100px var(--glow)}}
+@keyframes logoGlow{from{text-shadow:0 0 20px var(--glow), 0 2px 8px rgba(0,0,0,0.4)}to{text-shadow:0 0 60px var(--glow),0 0 100px var(--glow), 0 2px 8px rgba(0,0,0,0.4)}}
 .logo span{color:var(--acc)}
 
 /* ── CARD ── */
@@ -431,7 +431,7 @@ body{
 /* ── SETTINGS SCREEN ── */
 .settings-grid{display:flex;flex-direction:column;gap:clamp(16px,2.5vw,28px)}
 .settings-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
-.settings-label{font-size:clamp(11px,1.2vw,14px);letter-spacing:0.12em;text-transform:uppercase;color:var(--lbl);width:100%;margin-bottom:4px}
+.settings-label{font-size:clamp(11px,1.2vw,14px);letter-spacing:0.12em;text-transform:uppercase;color:var(--lbl);width:100%;margin-bottom:4px;text-shadow:0 1px 2px rgba(0,0,0,0.3)}
 .pill-group{display:flex;flex-wrap:wrap;gap:8px}
 .pill{
   padding:10px 20px;border-radius:100px;border:1px solid var(--bdr);
@@ -483,10 +483,10 @@ body{
 .typing-wrap{display:flex;flex-direction:column;gap:clamp(14px,2vw,28px)}
 .stats-bar{display:flex;align-items:center;gap:clamp(14px,2vw,28px);flex-wrap:wrap}
 .stat-item{display:flex;flex-direction:column;gap:4px}
-.stat-val{font-size:clamp(24px,3vw,42px);color:var(--act);font-weight:600;line-height:1;transition:color 0.2s}
+.stat-val{font-size:clamp(24px,3vw,42px);color:var(--act);font-weight:600;line-height:1;transition:color 0.2s;text-shadow:0 2px 4px rgba(0,0,0,0.3)}
 .stat-val.urgent{color:var(--err);animation:pulse 0.8s ease infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
-.stat-key{font-size:clamp(10px,1.1vw,14px);letter-spacing:0.12em;text-transform:uppercase;color:var(--lbl)}
+.stat-key{font-size:clamp(10px,1.1vw,14px);letter-spacing:0.12em;text-transform:uppercase;color:var(--lbl);text-shadow:0 1px 2px rgba(0,0,0,0.3)}
 .stats-bar .pill-group{margin-left:auto}
 .stats-bar .pill{
   padding:12px 24px;border:1px solid var(--acc);
@@ -510,7 +510,7 @@ body{
 }
 .words-outer.blurred .words-inner{filter:blur(5px)}
 .words-inner{display:flex;flex-wrap:wrap;gap:clamp(6px,1vw,14px);padding:16px 8px;line-height:var(--lh)}
-.word{font-size:var(--wsize);cursor:default;transition:opacity 0.15s}
+.word{font-size:var(--wsize);cursor:default;transition:opacity 0.15s;text-shadow:0 1px 3px rgba(0,0,0,0.3)}
 .word-dim{opacity:0.4;color:var(--dim)}
 .word-done{opacity:0.7;color:var(--pend)}
 .word-active{color:var(--act)}
@@ -525,30 +525,30 @@ body{
 .focus-hint{
   position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
   font-size:clamp(14px,1.4vw,20px);color:var(--lbl);letter-spacing:0.08em;text-transform:uppercase;
-  cursor:text;pointer-events:none;
+  cursor:text;pointer-events:none;text-shadow:0 2px 8px rgba(0,0,0,0.5);
 }
 
 /* HIDDEN INPUT */
 .hidden-input{position:fixed;opacity:0;pointer-events:none;width:1px;height:1px;top:-999px}
 
 /* ── RESULTS SCREEN ── */
-.results-title{font-size:clamp(32px,6vw,72px);color:var(--act);margin-bottom:clamp(24px,4vw,48px);opacity:0.9;font-weight:600}
+.results-title{font-size:clamp(32px,6vw,72px);color:var(--act);margin-bottom:clamp(24px,4vw,48px);opacity:0.9;font-weight:600;text-shadow:0 2px 8px rgba(0,0,0,0.4)}
 .results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:clamp(16px,2.5vw,32px);margin-bottom:clamp(28px,4vw,48px)}
 .res-card{
   background:var(--surf2);border:1px solid var(--bdr);border-radius:var(--rad);
   padding:clamp(20px,3vw,36px) clamp(18px,2.5vw,32px);text-align:center;
 }
 .res-card.accent{border-color:var(--acc);box-shadow:0 4px 20px var(--glow)}
-.res-num{font-size:clamp(28px,4vw,56px);color:var(--act);font-weight:700;line-height:1}
-.res-lbl{font-size:clamp(11px,1.1vw,14px);color:var(--lbl);letter-spacing:0.1em;text-transform:uppercase;margin-top:6px}
+.res-num{font-size:clamp(28px,4vw,56px);color:var(--act);font-weight:700;line-height:1;text-shadow:0 2px 4px rgba(0,0,0,0.3)}
+.res-lbl{font-size:clamp(11px,1.1vw,14px);color:var(--lbl);letter-spacing:0.1em;text-transform:uppercase;margin-top:6px;text-shadow:0 1px 2px rgba(0,0,0,0.3)}
 .chart-wrap{margin-bottom:clamp(24px,3.5vw,40px)}
-.chart-title{font-size:clamp(11px,1.1vw,14px);color:var(--lbl);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:clamp(12px,1.5vw,24px)}
+.chart-title{font-size:clamp(11px,1.1vw,14px);color:var(--lbl);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:clamp(12px,1.5vw,24px);text-shadow:0 1px 2px rgba(0,0,0,0.3)}
 .chart{display:flex;align-items:flex-end;gap:clamp(6px,1vw,14px);height:clamp(80px,15vw,160px)}
 .bar-col{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;min-width:0}
-.bar-val{font-size:clamp(10px,1vw,14px);color:var(--stat)}
+.bar-val{font-size:clamp(10px,1vw,14px);color:var(--stat);text-shadow:0 1px 2px rgba(0,0,0,0.3)}
 .bar-wrap{flex:1;width:100%;display:flex;align-items:flex-end}
 .bar{width:100%;background:var(--acc);border-radius:4px 4px 0 0;min-height:4px;opacity:0.8;transition:height 0.4s ease}
-.bar-lbl{font-size:clamp(9px,0.9vw,12px);color:var(--dim);white-space:nowrap;overflow:hidden;max-width:100%;text-overflow:ellipsis}
+.bar-lbl{font-size:clamp(9px,0.9vw,12px);color:var(--dim);white-space:nowrap;overflow:hidden;max-width:100%;text-overflow:ellipsis;text-shadow:0 1px 2px rgba(0,0,0,0.3)}
 .wrongs-wrap{margin-bottom:clamp(24px,3.5vw,40px)}
 .wrong-list{display:flex;flex-wrap:wrap;gap:clamp(10px,1.5vw,18px);margin-top:clamp(12px,1.5vw,24px)}
 .wrong-item{background:var(--surf2);border:1px solid var(--bdr);border-radius:10px;padding:10px 16px;font-size:clamp(13px,1.3vw,18px);display:flex;gap:10px;align-items:center}
@@ -815,12 +815,12 @@ function TypingScreen({ settings, onComplete, onBack }) {
       </div>
 
       <div className="words-outer" ref={wordsRef} style={{ position: "relative" }}>
-        {!focused && status === "idle" && (
-          <div className="focus-hint" onClick={() => inputRef.current?.focus()}>
+        {!focused && (
+          <div className="focus-hint">
             click to focus
           </div>
         )}
-        <div className={`words-inner ${!focused && status === "idle" ? "blurred" : ""}`}>
+        <div className={`words-inner ${!focused ? "blurred" : ""}`}>
           {words.map((w, i) => (
             <span key={i} className={`word ${i < idx ? "word-done" : i === idx ? "word-active" : "word-dim"}`}
               data-cur={i === idx ? "1" : undefined}>
